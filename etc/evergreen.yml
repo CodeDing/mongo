@@ -2684,6 +2684,7 @@ tasks:
 
 ## compile - build all scons targets except unittests ##
 - name: compile
+  tags: ["wtdevelop", "windows-large"]
   depends_on: []
   commands:
     - func: "build new tools"
@@ -2843,6 +2844,7 @@ tasks:
 
 ## compile_all - build all scons targets ##
 - name: compile_all
+  tags: ["wtdevelop", "windows-large"]
   commands:
     - func: "build new tools"
     - func: "build rocksdb" # noop if ${build_rocksdb} is not "true"
@@ -2992,6 +2994,7 @@ tasks:
     - func: "umount shared scons directory"
 
 - name: compile_benchmarks
+  tags: ["wtdevelop", "windows-large"]
   depends_on: []
   commands:
     - command: manifest.load
@@ -3102,6 +3105,7 @@ tasks:
 
 - <<: *benchmark_template
   name: benchmarks_orphaned
+  tags: ["wtdevelop"]
   commands:
   - func: "do benchmark setup"
   - func: "run tests"
@@ -3112,6 +3116,7 @@ tasks:
 
 - <<: *benchmark_template
   name: benchmarks_sharding
+  tags: ["wtdevelop"]
   commands:
   - func: "do benchmark setup"
   - func: "run tests"
@@ -3214,6 +3219,7 @@ tasks:
 ## jstestfuzz standalone aggregation generational fuzzer ##
 - <<: *jstestfuzz_template
   name: aggregation_fuzzer
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "do multiversion setup"
@@ -3274,6 +3280,7 @@ tasks:
 ## jstestfuzz ##
 - <<: *jstestfuzz_template
   name: jstestfuzz
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run jstestfuzz"
@@ -3285,6 +3292,7 @@ tasks:
 ## jstestfuzz concurrent ##
 - <<: *jstestfuzz_template
   name: jstestfuzz_concurrent
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run jstestfuzz"
@@ -3298,6 +3306,7 @@ tasks:
 ## jstestfuzz concurrent replica set ##
 - <<: *jstestfuzz_template
   name: jstestfuzz_concurrent_replication
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run jstestfuzz"
@@ -3324,6 +3333,7 @@ tasks:
 ## jstestfuzz concurrent sharded cluster ##
 - <<: *jstestfuzz_template
   name: jstestfuzz_concurrent_sharded
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run jstestfuzz"
@@ -3398,6 +3408,7 @@ tasks:
 ## jstestfuzz replica set ##
 - <<: *jstestfuzz_template
   name: jstestfuzz_replication
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run jstestfuzz"
@@ -3433,6 +3444,7 @@ tasks:
 ## jstestfuzz sharded cluster ##
 - <<: *jstestfuzz_template
   name: jstestfuzz_sharded
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run jstestfuzz"
@@ -3566,6 +3578,7 @@ tasks:
 
 - <<: *task_template
   name: audit
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -3584,6 +3597,7 @@ tasks:
 
 - <<: *task_template
   name: auth_audit
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -3734,6 +3748,7 @@ tasks:
 
 - <<: *task_template
   name: dbtest
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -3790,6 +3805,7 @@ tasks:
 
 - <<: *task_template
   name: ese
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - command: shell.exec
@@ -3890,6 +3906,7 @@ tasks:
 
 - <<: *task_template
   name: external_auth
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -3921,6 +3938,7 @@ tasks:
 
 - <<: *task_template
   name: jsCore
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -3939,6 +3957,7 @@ tasks:
 
 - <<: *task_template
   name: jsCore_ese
+  tags: ["wtdevelop"]
   depends_on:
   - name: jsCore
   commands:
@@ -3961,6 +3980,7 @@ tasks:
 
 - <<: *task_template
   name: jsCore_auth
+  tags: ["wtdevelop"]
   depends_on:
   - name: jsCore
   commands:
@@ -3994,6 +4014,7 @@ tasks:
 
 - <<: *task_template
   name: jsCore_txns
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4368,6 +4389,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_ese_0
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4377,6 +4399,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_ese_1
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4386,6 +4409,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_ese_2
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4395,6 +4419,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_ese_3
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4404,6 +4429,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_ese_4
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4413,6 +4439,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_ese_5
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4422,6 +4449,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_ese_6
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4431,6 +4459,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_ese_misc
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4449,6 +4478,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_auth_0
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4458,6 +4488,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_auth_1
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4467,6 +4498,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_auth_2
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4476,6 +4508,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_auth_3
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4485,6 +4518,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_auth_4
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4494,6 +4528,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_auth_5
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4503,6 +4538,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_auth_6
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4512,6 +4548,7 @@ tasks:
 
 - <<: *task_template
   name: replica_sets_auth_misc
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4521,6 +4558,7 @@ tasks:
 
 - <<: *task_template
   name: sasl
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4701,6 +4739,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_0
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4710,6 +4749,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_1
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4719,6 +4759,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_2
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4728,6 +4769,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_3
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4737,6 +4779,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_4
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4746,6 +4789,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_5
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4755,6 +4799,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_6
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4764,6 +4809,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_7
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4773,6 +4819,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_8
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4782,6 +4829,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_9
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4791,6 +4839,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_10
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4800,6 +4849,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_11
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4809,6 +4859,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_12
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4818,6 +4869,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_13
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4827,6 +4879,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_14
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4836,6 +4889,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_15
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4845,6 +4899,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_16
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4854,6 +4909,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_17
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4863,6 +4919,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_18
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4872,6 +4929,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_19
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4881,6 +4939,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_20
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -4890,6 +4949,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_ese_misc
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5034,6 +5094,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_0
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5043,6 +5104,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_1
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5052,6 +5114,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_2
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5061,6 +5124,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_3
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5070,6 +5134,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_4
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5079,6 +5144,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_5
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5088,6 +5154,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_6
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5097,6 +5164,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_7
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5106,6 +5174,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_8
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5115,6 +5184,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_9
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5124,6 +5194,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_10
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5133,6 +5204,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_11
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5142,6 +5214,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_12
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5151,6 +5224,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_13
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5160,6 +5234,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_14
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5169,6 +5244,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_15
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5178,6 +5254,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_16
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5187,6 +5264,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_17
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5196,6 +5274,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_18
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5205,6 +5284,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_19
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5214,6 +5294,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_misc
+  tags: ["wtdevelop", "windows-large"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5234,6 +5315,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_0
+  tags: ["wtdevelop", "windows-large"]
   depends_on: &sharding_auth_all
   - name: sharding_auth_0
   - name: sharding_auth_1
@@ -5265,6 +5347,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_1
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5275,6 +5358,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_2
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5285,6 +5369,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_3
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5295,6 +5380,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_4
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5305,6 +5391,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_5
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5315,6 +5402,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_6
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5325,6 +5413,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_7
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5335,6 +5424,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_8
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5345,6 +5435,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_9
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5355,6 +5446,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_10
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5365,6 +5457,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_11
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5375,6 +5468,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_12
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5385,6 +5479,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_13
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5395,6 +5490,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_14
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5405,6 +5501,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_15
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5415,6 +5512,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_16
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5425,6 +5523,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_17
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5435,6 +5534,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_18
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5445,6 +5545,7 @@ tasks:
 
 - <<: *task_template
   name: sharding_auth_audit_misc
+  tags: ["wtdevelop", "windows-large"]
   depends_on: *sharding_auth_all
   commands:
   - func: "do setup"
@@ -5609,6 +5710,7 @@ tasks:
 
 - <<: *task_template
   name: snmp
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "do snmp setup"
@@ -5620,6 +5722,7 @@ tasks:
 
 - <<: *task_template
   name: ssl
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5629,6 +5732,7 @@ tasks:
 
 - <<: *task_template
   name: sslSpecial
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5647,6 +5751,7 @@ tasks:
 
 - <<: *task_template
   name: jsCore_decimal
+  tags: ["wtdevelop"]
   commands:
   - func: "do setup"
   - func: "run tests"
@@ -5919,6 +6024,7 @@ tasks:
   - func: "run idl tests"
 
 - name: buildscripts_test
+  tags: ["wtdevelop"]
   depends_on: []
   commands:
   - func: "git get project"
@@ -8318,6 +8424,13 @@ buildvariants:
     gorootvars: 'PATH="/cygdrive/c/go1.8/go/bin:/cygdrive/c/mingw-w64/x86_64-4.9.1-posix-seh-rt_v3-rev1/mingw64/bin:$PATH" GOROOT="c:/go1.8/go" CGO_CFLAGS="-D_WIN32_WINNT=0x0601 -DNTDDI_VERSION=0x06010000"'
     tooltags: "-tags 'ssl sasl'"
     build_mongoreplay: false
+  run_on:
+  - windows-64-vs2015-small
+  tasks:
+  - name: ".wtdevelop .windows-large"
+    distros: "windows-64-vs2015-large"
+  - name: ".wtdevelop !.windows-large"
+    distros: "windows-64-vs2015-small"
 
 - <<: *enterprise-windows-64-2k8-template
   name: enterprise-windows-64-2k8-openssl
