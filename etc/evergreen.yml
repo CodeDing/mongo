@@ -2684,7 +2684,6 @@ tasks:
 
 ## compile - build all scons targets except unittests ##
 - name: compile
-  tags: ["wtdevelop", "windows-large"]
   depends_on: []
   commands:
     - func: "build new tools"
@@ -2844,7 +2843,6 @@ tasks:
 
 ## compile_all - build all scons targets ##
 - name: compile_all
-  tags: ["wtdevelop", "windows-large"]
   commands:
     - func: "build new tools"
     - func: "build rocksdb" # noop if ${build_rocksdb} is not "true"
@@ -6571,10 +6569,12 @@ tasks:
 task_groups:
 - <<: *compile_task_group_template
   name: compile_TG
+  tags: ["wtdevelop", "windows-large"]
   tasks:
   - compile
 - <<: *compile_task_group_template
   name: compile_all_run_unittests_TG
+  tags: ["wtdevelop", "windows-large"]
   tasks:
   - compile
   - compile_unittests
